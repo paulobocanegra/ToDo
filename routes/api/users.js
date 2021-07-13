@@ -54,11 +54,11 @@ router.post("/login", (req, res) => {
 
 
 
-     
+
 // user register
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body)
-         if(!isValid) return res.status(400).json(errors)
+        if(!isValid) return res.status(400).json(errors)
     User.findOne({email:req.body.email}).then((user)=>{
         if (user) {
             return res.status(400).json(errors)
